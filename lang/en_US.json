@@ -1,0 +1,23 @@
+{
+    "welcome": "Welcome",
+    "required-message": "Field is required",
+    "sign-out": "Sign Out",
+    "menu": {
+        "gym": "Gym",
+        "yoga": "Yoga",
+        "pool": "Pool",
+        "spa": "Spa"
+    },
+    "products": "products",
+    "sort-by": "Sort by:",
+    "by-price-low-to-high": "price (low to high)",
+    "by-price-high-to-low": "price (high to low)",
+    "by-released-new-to-old": "newest",
+    "by-released-old-to-new": "oldest",
+    "by-price": "price",
+    "by-released": "released",
+    "find-glasses": "Find glasses",
+    "find-eyeglasses": "Find eyeglasses",
+    "glass-for-study": "Study",
+    "glass-for-party": "Party"
+}

@@ -1,0 +1,23 @@
+{
+    "welcome": "Xin chào",
+    "required-message": "Vui lòng nhập dữ liệu",
+    "sign-out": "Đăng xuất",
+    "menu": {
+        "gym": "Gym",
+        "yoga": "Yoga",
+        "pool": "Pool",
+        "spa": "Spa"
+    },
+    "products": "sản phẩm",
+    "sort-by": "Sắp xếp:",
+    "by-price-low-to-high": "giá tăng dần",
+    "by-price-high-to-low": "giá giảm dần",
+    "by-released-new-to-old": "sản phẩm mới",
+    "by-released-old-to-new": "sản phẩm cũ",
+    "by-price": "THEO GIÁ",
+    "by-released": "THEO NGÀY ĐĂNG",
+    "find-glasses": "Tìm kính",
+    "find-eyeglasses": "Tìm mắt kính",
+    "glass-for-study": "Cửa sổ tri thức",
+    "glass-for-party": "Cửa sổ chơi bời"
+}
