@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
-      title: "CSCB ThriftStore",
+      title: "VFL ACADEMY",
       meta: [{ name: "description", content: "My amazing site." }],
       link: [
         // {
