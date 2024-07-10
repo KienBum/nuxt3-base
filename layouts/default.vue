@@ -14,24 +14,7 @@ const title = computed(() =>
 </script>
 <template>
   <div>
-    <!-- <a-row :gutter="16">
-      <a-col class="" :span="24">
-        <div>
-          <Header />
-        <div>
-          <div >
-            <div >
-              <ClientOnly>
-              </ClientOnly>
-            </div>
-          </div>
-          <slot />
-        </div>
-        <Footer />
-        </div>
-      </a-col>
-    </a-row> -->
-    <Header />
+    <Header class="header-nav-sticky"/>
     <div>
       <div >
         <div >
@@ -44,3 +27,12 @@ const title = computed(() =>
     <Footer />
   </div>
 </template>
+
+<style lang="scss" scoped>
+.header-nav-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #fbf7f2;
+}
+</style>

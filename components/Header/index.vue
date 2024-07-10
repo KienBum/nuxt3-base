@@ -12,7 +12,7 @@ const availableLocales = computed(() => {
 <template>
   <div class="">
 <!--    <Promote />-->
-    <MenuBar />
+    <MenuBar/>
   </div>
 </template>
 

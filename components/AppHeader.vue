@@ -19,7 +19,7 @@ const onSignout = () => {
   navigateTo("/login");
   // useNotify("success", "Đăng xuất thành công").show();
 };
-</script>
+</script> 
 <template>
   <div
     id="kt_header"

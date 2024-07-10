@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import { isClose, toggleMenuBar, init } from "~~/composables/useMenu";
 import Cookies from "js-cookie";
 import { SearchOutlined, UserOutlined, CustomerServiceOutlined, ShoppingCartOutlined } from '@ant-design/icons-vue';
@@ -13,11 +13,25 @@ const availableLocales = computed(() => {
   return locales.value.filter((i) => i.code !== locale.value);
 });
 
+const router = useRouter();
+
+
+//function
+const onSearch = (searchValue: string) => {
+  console.log(888, searchValue);
+  // router.push(`/search?searchValue=${searchValue}`);
+  router.push({
+    // name: `/search?searchValue=${searchValue}`,
+    path: `/search?searchValue=${searchValue}`,
+    query: {'searchValue': searchValue}
+  })
+}
+
 </script>
 <template>
   <div class="navbar">
 <!--    logo for-->
-    <div class="logo" @click="$router.push('/academy')">
+    <div class="logo" @click="$router.push('/')">
       VFL ACADEMY
     </div>
 
@@ -41,13 +55,13 @@ const availableLocales = computed(() => {
       
     </div>
     <div class="helper justify-end">
-      <SearchOutlined class="icon" />
-      <UserOutlined class="icon" />
-      <!-- <CustomerServiceOutlined class="icon" /> -->
+      <!-- <SearchOutlined class="icon" /> -->
+      <search-box @onSearch="onSearch"/>
+      <UserOutlined class="icon" @click="$router.push('/login')"/>
       <ShoppingCartOutlined class="icon" />
 
       <!--begin::Lang-->
-      <NuxtLink
+      <!-- <NuxtLink
         v-for="locale in availableLocales"
         :key="locale.code"
         :to="switchLocalePath(locale.code)"
@@ -60,7 +74,7 @@ const availableLocales = computed(() => {
         >
           {{ locale.code }}
         </div>
-      </NuxtLink>
+      </NuxtLink> -->
       <!--end::Lang-->
     </div>
   </div>
