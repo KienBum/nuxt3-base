@@ -21,6 +21,8 @@ const useAPI = ({
   const auth = useAuth().getToken();
   const headers = {
     Authorization: auth.value,
+    'accept': '*/*',
+    'Content-Type': 'application/json',
   };
   const _post = async (d: any = {}) => {
     const { data, pending, error, refresh } = await useFetch(path, {
@@ -32,6 +34,7 @@ const useAPI = ({
       onResponseError,
       server: true,
       body: d,
+      headers,
     });
     return { data, pending, error, refresh };
   };

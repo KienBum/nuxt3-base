@@ -3,13 +3,14 @@ import useAuth from '~~/composables/useAuth';
 
 
 const router = useRouter();
+console.log(router);
 definePageMeta({
     layout: "login-layout",
 });
 
 const data = ref<any>({
-  account: "loc",
-  password: "Loc@1234"
+  account: "",
+  password: ""
 })
 
 let mode = ref<any>('signin-mode')
@@ -28,10 +29,10 @@ const registerAccount = async (formData: any) => {
 
 const login = async () => {
   loading.value.login = true
-  const response = await useAuth().login(data.value.account, data.value.password, true)
+  const response = await useAuth().login(data.value.account, data.value.password)
   if (response) {
-      // useNotify('success', 'Đăng nhập thành công').show()
-      router.push({ path: '/' })
+    useNotify('success', 'Đăng nhập thành công').show()
+    router.push({ path: '/' })
   }
   loading.value.login = false
 }
@@ -48,15 +49,14 @@ const login = async () => {
             <h3 class="form_title">Login</h3>
             <form @submit.prevent="login()">
               <div class="form_group">
-                <label class="label" for="name">Email address</label>
+                <label class="label" for="name">Username</label>
                 <input
                   type="text"
                   class="form-control"
                   v-model="data.account"
-                  placeholder="Username"
+                  placeholder="Type your username"
                   required
                 >
-                <span class="form_tips">We'll never share your email with anyone else.</span>
               </div>
               <div class="form_group">
                 <label class="label" for="password">Password</label>
@@ -64,7 +64,7 @@ const login = async () => {
                   type="password"
                   class="form-control"
                   v-model="data.password"
-                  placeholder="Password"
+                  placeholder="Type your password"
                   required
                 >
               </div>

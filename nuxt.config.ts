@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     // Keys within public are also exposed client-side
     public: {
       // apiBase: "http://192.168.1.64:6868/api",
-      apiBase: "http://127.0.0.1:8000/",
+      apiBase: "https://kalifake.bootybody.vn",
     },
   },
   vite: {
@@ -27,10 +27,10 @@ export default defineNuxtConfig({
       title: "VFL ACADEMY",
       meta: [{ name: "description", content: "My amazing site." }],
       link: [
-        // {
-        //   href: "/css/bootstrap.min.css",
-        //   rel: "stylesheet",
-        // },
+        {
+          href: "/css/bootstrap.min.css",
+          rel: "stylesheet",
+        },
         {
           href: "/css/style.css",
           rel: "stylesheet",
