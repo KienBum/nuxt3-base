@@ -16,9 +16,11 @@ const availableLocales = computed(() => {
 </script>
 <template>
   <div class="navbar">
-    <div class="logo justify-start" @click="$router.push('/')">
-      <img src="@/assets/images/logo.jpg" alt="">
+<!--    logo for-->
+    <div class="logo" @click="$router.push('/academy')">
+      VFL ACADEMY
     </div>
+
     <div class="menu justify-center">
       <div class="dropdown">
         <button class="dropbtn title-decorate">{{ $t("menu.gym") }}</button>
@@ -61,32 +63,37 @@ const availableLocales = computed(() => {
       </NuxtLink>
       <!--end::Lang-->
     </div>
-    <div class="menu-dropdown" id="dropdown-content">
-      <a href="asdads">kkkkkkkkk</a>
-    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .navbar {
-  height: 64px;
+  height: 48px;
   padding: 0px 64px;
   display:  grid;
   grid-template-columns: 200px 300px 200px;
   justify-content: space-between;
   user-select: none;
-  .logo img{
-    height: 64px;
-    max-width: 100px;
-    width: auto;
-    cursor: pointer;
+  &:hover {
+    background-color: #fbf7f2;
   }
+  .logo {
+    width: 100px;
+    display: flex;
+    align-items: center;
+  }
+  //.logo img{
+  //  height: 64px;
+  //  max-width: 100px;
+  //  width: auto;
+  //  cursor: pointer;
+  //}
   .menu {
     display: flex;
     align-items: center;
       .menu-item {
         text-transform: uppercase;
-        height: 64px;
+        height: 48px;
         font-size: 16px;
         font-weight: 700;
         padding: 0px 1rem;
@@ -115,7 +122,7 @@ const availableLocales = computed(() => {
 
 .dropdown .dropbtn {
   text-transform: uppercase;
-  height: 64px;
+  height: 48px;
   font: inherit;
   font-size: 16px;
   font-weight: 700;

@@ -11,7 +11,7 @@ const availableLocales = computed(() => {
 </script>
 <template>
   <div class="">
-    <Promote />
+<!--    <Promote />-->
     <MenuBar />
   </div>
 </template>
