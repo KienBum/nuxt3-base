@@ -30,6 +30,10 @@
 <style scoped lang="scss">
 .academy-dashboard {
   .video-container {
+    video {
+    height: calc(100dvh - 48px);
+    width: 100dvw;
+    }
     .video-content {
       top: 100px;
       opacity: 999;
