@@ -42,7 +42,7 @@ const availableLocales = computed(() => {
     </div>
     <div class="helper justify-end">
       <SearchOutlined class="icon" />
-      <UserOutlined class="icon" />
+      <UserOutlined class="icon" @click="$router.push('/login')"/>
       <!-- <CustomerServiceOutlined class="icon" /> -->
       <ShoppingCartOutlined class="icon" />
 
