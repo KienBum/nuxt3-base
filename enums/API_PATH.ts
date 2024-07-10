@@ -1,7 +1,7 @@
 enum API_PATH {
-  AUTH_TOKEN = "",
+  // AUTH_TOKEN = "",
   AUTH_MENU = "",
-  AUTH_REGISTER = "",
+  // AUTH_REGISTER = "",
   AUTH_LOGOUT = "",
   AUTH_FORGET_PASSWORD = "",
   AUTH_RESET_PASSWORD = "",
@@ -16,11 +16,11 @@ enum API_PATH {
   REGION = "",
   ORGANIZATION = "",
   DEPARTMENT = "",
-  GLASSESCATEGORY = "/glassescate"
+  GLASSESCATEGORY = "/glassescate",
   
-  // AUTH_TOKEN = "/auth/token", // api get token
+  AUTH_TOKEN = "/signin", // api get token
   // AUTH_MENU = "/auth/menu", // api get menu
-  // AUTH_REGISTER = "/auth/register", // api get menu
+  AUTH_REGISTER = "/signup", // api get menu
   // AUTH_LOGOUT = "/auth/logout", // api logout
   // AUTH_FORGET_PASSWORD = "/auth/forgetPassword", // api get otp email for reset password
   // AUTH_RESET_PASSWORD = "/auth/reset/password", // api reset password

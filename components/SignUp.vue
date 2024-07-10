@@ -1,9 +1,10 @@
 <template>
   <div class="login_form_input">
     <h3 class="form_title">Sign Up</h3>
-    <form @submit.prevent="registerAccount()" autocomplete="off">
+    <form @submit.prevent="registerAccount()" >
       <div class="form_group">
         <label class="label" for="name">Full name</label>
+        <Field name="name" rules="required" />
         <input
           type="text"
           class="form-control"
@@ -21,9 +22,26 @@
           placeholder="Email"
           required
         />
-        <span class="form_tips"
-          >We'll never share your email with anyone else.</span
-        >
+      </div>
+      <div class="form_group">
+        <label class="label" for="phone">Phone Number</label>
+        <input
+          type="text"
+          class="form-control"
+          v-model="data.phone"
+          placeholder="Phone"
+          required
+        />
+      </div>
+      <div class="form_group">
+        <label class="label" for="mail">Date of Birth</label>
+        <input
+          type="text"
+          class="form-control"
+          v-model="data.dob"
+          placeholder="Dob"
+          required
+        />
       </div>
       <div class="form_group">
         <label class="label" for="account">Account</label>
@@ -45,9 +63,17 @@
           autocomplete="new-password"
           required
         />
-        <span class="form_tips"
-          >Password required at least 8 char and includes upper&lower case letter, special char and number.</span
-        >
+      </div>
+      <div class="form_group">
+        <label class="label" for="pass">Re-Password</label>
+        <input
+          type="password"
+          class="form-control"
+          v-model="data.rePassword"
+          placeholder="Password"
+          autocomplete="new-password"
+          required
+        />
       </div>
       <div class="form_action">
         <div class="form-check">
@@ -77,6 +103,7 @@
 </template>
 
 <script lang="ts" setup>
+const router = useRouter();
 const props = defineProps({
   item: {
     type: [Object],
@@ -86,30 +113,44 @@ const props = defineProps({
 
 let data = ref<any>({
   name: '',
-  account: '',
   email: '',
+  phone: '',
+  dob: '',
+  account: '',
   password: '',
+  rePassword: '',
   isAgree: false
 });
 
 let loading = ref<any>({
   register: false,
 })
-
+const checkPassword = () => {
+  return data.password === data.rePassword;
+}
 const registerAccount = async () => {
+  
+  const checkPrd = checkPassword();
+  if ( checkPrd ) {
   loading.value.register = true
   let formData: any = data.value
-  const response = await useAuth().register(
-    formData.name,
-    formData.account,
-    formData.email,
-    formData.password,
-  )
-  if (response) {
-    // useNotify('success', 'Đăng ký tài khoản thành công').show()
-    emits("sign-up", formData);
-  }
+
+  // const response = await useAuth().register(
+  //   formData.name,
+  //   formData.email,
+  //   formData.phone,
+  //   formData.dob,
+  //   formData.account,
+  //   formData.password,
+  // )
+  // if (response) {
+  //   // useNotify('success', 'Đăng ký tài khoản thành công').show()
+  //   emits("sign-up", formData);
+  // }
+  useNotify('success', 'Đăng ký tài khoản thành công').show()
+  router.push('/')
   loading.value.register = false
+    }
 };
 
 const emits = defineEmits(["change-mode", "sign-up"]);

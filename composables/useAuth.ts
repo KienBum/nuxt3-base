@@ -25,13 +25,15 @@ const useAuth = () => {
   }
   const register = async (
     name: string,
-    account: string,
     email: string,
+    phone: string,
+    dob: string,
+    account: string,
     password: string,
   )=> {
     const { data, error }: any = await useAPI({
       path: API_PATH.AUTH_REGISTER
-    })._post({ name, account, email, password });
+    })._post({ name, email, phone, dob, account, password });
     if(error.value || data.value.statusCode != '200') {
       // useNotify('danger', data.value.message).show()
       return false
@@ -42,14 +44,14 @@ const useAuth = () => {
     return null
   }
   const login = async (
-    account: string,
+    userName: string,
     password: string,
-    rememberMe: boolean,
   ) => {
     const { data, error }: any = await useAPI({
       path: API_PATH.AUTH_TOKEN
-    })._post({ account, password, rememberMe });
-    if (error.value || data.value.statusCode != '200') { // error
+    })._post({ userName, password });
+    
+    if (error.value || data.value.status != '200') { // error
       // useNotify('danger', data.value.message).show()
       return false
     }
