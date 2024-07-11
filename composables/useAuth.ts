@@ -24,18 +24,19 @@ const useAuth = () => {
     return true
   }
   const register = async (
-    name: string,
-    email: string,
-    phone: string,
-    dob: string,
-    account: string,
+    fullName: string,
+    address: string,
+    phoneNumber: string,
+    birthDay: string,
+    userName: string,
     password: string,
   )=> {
     const { data, error }: any = await useAPI({
       path: API_PATH.AUTH_REGISTER
-    })._post({ name, email, phone, dob, account, password });
-    if(error.value || data.value.statusCode != '200') {
-      // useNotify('danger', data.value.message).show()
+    })._post({ fullName, address, phoneNumber, birthDay, userName, password });
+    console.log(data,error);
+    if(error.value ) {
+      useNotify('danger', error.value.data.message).show()
       return false
     }
     if (data) {
@@ -50,9 +51,8 @@ const useAuth = () => {
     const { data, error }: any = await useAPI({
       path: API_PATH.AUTH_TOKEN
     })._post({ userName, password });
-    
-    if (error.value || data.value.status != '200') { // error
-      // useNotify('danger', data.value.message).show()
+    if (error.value) { // error
+      useNotify('danger', error.value.data.message).show()
       return false
     }
     if (data) { // success
